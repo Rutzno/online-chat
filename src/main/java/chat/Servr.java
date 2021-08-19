@@ -2,7 +2,7 @@ package chat;
 
 import java.util.Scanner;
 
-public class Server {
+public class Servr {
     private final Scanner scanner = new Scanner(System.in);
     private final String[] actions = new String[] {"sent", "joined", "left", "connected", "disconnected"};
 
