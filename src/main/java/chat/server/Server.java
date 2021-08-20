@@ -1,8 +1,5 @@
 package chat.server;
 
-import chat.Reader;
-import chat.Writer;
-
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.ServerSocket;
@@ -15,17 +12,17 @@ public class Server {
     public static void main(String[] args) {
         try (ServerSocket serverSocket = new ServerSocket(PORT, 50, InetAddress.getByName(ADDRESS))) {
             System.out.println("Server started!");
-
-            Socket socket = serverSocket.accept();
-            Reader reader = new Reader(socket);
-            reader.start();
-            Writer writer = new Writer(socket);
-            writer.start();
-
-            reader.join(500);
-            writer.join(500);
-
-        } catch (IOException | InterruptedException e) {
+            int clientNumber = 0;
+//            serverSocket.setSoTimeout(15000);
+            while (true) {
+                try {
+                    Socket socket = serverSocket.accept();
+                    new Session(socket, ++clientNumber).start();
+                } catch (IOException e) {
+                    break;
+                }
+            }
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
