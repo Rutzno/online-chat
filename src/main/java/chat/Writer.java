@@ -16,9 +16,14 @@ public class Writer extends Thread {
     public void run() {
         try (Scanner scanner = new Scanner(System.in);
              DataOutputStream output = new DataOutputStream(socket.getOutputStream())) {
-            while (scanner.hasNextLine()) {
+            while (true) {
                 String msg = scanner.nextLine();
-                output.writeUTF(msg);
+                if (!msg.isEmpty()) {
+                    output.writeUTF(msg);
+                    if ("/exit".equals(msg)) {
+                        break;
+                    }
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
