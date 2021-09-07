@@ -4,6 +4,12 @@ import java.io.Serializable;
 import java.net.Socket;
 import java.util.Objects;
 
+/**
+ * @author Mack_TB
+ * @version 1.0.7
+ * @since 8/16/2021
+ */
+
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
 
