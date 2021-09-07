@@ -5,14 +5,20 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+/** Before launch test, check if the file chat.data contains something.
+ *  If so, then remove the content and launch the test.
+ */
 
 public class Server {
     private static final String ADDRESS = "127.0.0.1";
     private static final int PORT = 23456;
-    public static final List<String> usersName = new ArrayList<>();
-    public static final List<String> messages = new ArrayList<>();
-    public static final List<Socket> sockets = new ArrayList<>();
+    public static final Map<String, Socket> users = new HashMap<>();
+    public static final List<Session> sessions = new ArrayList<>();
+    public static final String chatFileName = "chat.data";
 
     public static void main(String[] args) {
         Server server = new Server();
@@ -22,11 +28,14 @@ public class Server {
     private void launch() {
         try (ServerSocket serverSocket = new ServerSocket(PORT, 50, InetAddress.getByName(ADDRESS))) {
             System.out.println("Server started!");
-//            serverSocket.setSoTimeout(7000);
-            while (true) {
+//            chatFile.createNewFile();
+            serverSocket.setSoTimeout(7000);
+            while (!Thread.currentThread().isInterrupted()) {
                 try {
                     Socket socket = serverSocket.accept();
-                    new Session(socket).start();
+                    Session session = new Session(socket);
+                    session.start();
+                    sessions.add(session);
                 } catch (IOException e) {
                     break;
                 }
