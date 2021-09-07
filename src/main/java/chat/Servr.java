@@ -2,6 +2,12 @@ package chat;
 
 import java.util.Scanner;
 
+/**
+ * @author Mack_TB
+ * @version 1.0.7
+ * @since 8/16/2021
+ */
+
 public class Servr {
     private final Scanner scanner = new Scanner(System.in);
     private final String[] actions = new String[] {"sent", "joined", "left", "connected", "disconnected"};
