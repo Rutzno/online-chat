@@ -8,6 +8,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * @author Mack_TB
+ * @version 1.0.7
+ * @since 8/16/2021
+ */
+
 public class Session extends Thread {
     private final Socket socket;
     private User user;
