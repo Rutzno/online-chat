@@ -9,9 +9,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/** Before launch test, check if the file chat.data contains something.
- *  If so, then remove the content and launch the test.
- */
 
 public class Server {
     private static final String ADDRESS = "127.0.0.1";
