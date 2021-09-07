@@ -5,6 +5,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Mack_TB
+ * @version 1.0.7
+ * @since 8/16/2021
+ */
+
 public class Message implements Serializable {
     private static final long serialVersionUID = 3L;
 
