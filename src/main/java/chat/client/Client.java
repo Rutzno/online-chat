@@ -10,6 +10,12 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Scanner;
 
+/**
+ * @author Mack_TB
+ * @version 1.0.7
+ * @since 8/16/2021
+ */
+
 public class Client {
     private static final String SERVER_ADDRESS = "127.0.0.1";
     private static final int SERVER_PORT = 23456;
