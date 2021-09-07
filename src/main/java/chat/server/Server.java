@@ -29,7 +29,7 @@ public class Server {
         try (ServerSocket serverSocket = new ServerSocket(PORT, 50, InetAddress.getByName(ADDRESS))) {
             System.out.println("Server started!");
 //            chatFile.createNewFile();
-            serverSocket.setSoTimeout(7000);
+//            serverSocket.setSoTimeout(7000);
             while (!Thread.currentThread().isInterrupted()) {
                 try {
                     Socket socket = serverSocket.accept();
