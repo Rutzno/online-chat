@@ -8,6 +8,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * @author Mack_TB
+ * @version 1.0.7
+ * @since 8/16/2021
+ */
+
 public class Writer extends Thread {
     private final Socket socket;
 
