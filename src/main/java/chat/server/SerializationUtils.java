@@ -2,6 +2,12 @@ package chat.server;
 
 import java.io.*;
 
+/**
+ * @author Mack_TB
+ * @version 1.0.7
+ * @since 8/16/2021
+ */
+
 public class SerializationUtils {
     /**
      * Serialize the given object to the file
