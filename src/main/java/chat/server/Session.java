@@ -136,7 +136,8 @@ public class Session extends Thread {
             output.writeUTF(msgWithoutNew.toString()); // send message to me
             if (Server.users.containsKey(this.addressee) && receiverSession.getAddressee() != null
                     && receiverSession.getAddressee().equals(this.user.getLogin())) {
-                DataOutputStream outputStream = new DataOutputStream(Server.users.get(this.addressee).getOutputStream());
+                DataOutputStream outputStream = new DataOutputStream(
+                        Server.users.get(this.addressee).getOutputStream());
                 outputStream.writeUTF(msgWithoutNew.toString()); // send to the receiver
             }
         } else {
